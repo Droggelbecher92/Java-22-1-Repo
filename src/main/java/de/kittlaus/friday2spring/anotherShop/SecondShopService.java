@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ShopService {
+public class SecondShopService {
 
     private final OrderRepo orderRepo;
     private final ProductRepo productRepo;
 
 
-    public ShopService(OrderRepo orderRepo, ProductRepo productRepo) {
+    public SecondShopService(OrderRepo orderRepo, ProductRepo productRepo) {
         this.orderRepo = orderRepo;
         this.productRepo = productRepo;
     }

@@ -25,7 +25,7 @@ public class ShopController {
         return shopService.addThisNewProduct(productToAdd);
     }
 
-    @PostMapping
+    @PostMapping("/random")
     public void createRandomProduct(){
         shopService.makeAProduct();
     }

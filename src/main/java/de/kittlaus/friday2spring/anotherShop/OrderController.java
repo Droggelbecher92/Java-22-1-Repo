@@ -9,10 +9,10 @@ import java.util.List;
 @RequestMapping("/order")
 public class OrderController {
 
-    private final ShopService shopService;
+    private final SecondShopService shopService;
 
 
-    public OrderController(ShopService shopService) {
+    public OrderController(SecondShopService shopService) {
         this.shopService = shopService;
     }
 
