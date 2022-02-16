@@ -1,4 +1,4 @@
-package de.kittlaus.friday2spring;
+package de.kittlaus.java221;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

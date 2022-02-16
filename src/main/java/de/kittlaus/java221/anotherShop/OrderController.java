@@ -1,4 +1,4 @@
-package de.kittlaus.friday2spring.anotherShop;
+package de.kittlaus.java221.anotherShop;
 
 
 import org.springframework.web.bind.annotation.*;

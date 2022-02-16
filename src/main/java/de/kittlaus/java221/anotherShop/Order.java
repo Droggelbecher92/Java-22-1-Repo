@@ -1,4 +1,4 @@
-package de.kittlaus.friday2spring.anotherShop;
+package de.kittlaus.java221.anotherShop;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package de.kittlaus.friday2spring.shop;
+package de.kittlaus.java221.shop;
 
 
 import org.springframework.stereotype.Repository;

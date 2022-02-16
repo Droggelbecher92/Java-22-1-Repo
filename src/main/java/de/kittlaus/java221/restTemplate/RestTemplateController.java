@@ -1,4 +1,4 @@
-package de.kittlaus.friday2spring.restTemplate;
+package de.kittlaus.java221.restTemplate;
 
 
 import org.springframework.web.bind.annotation.*;
