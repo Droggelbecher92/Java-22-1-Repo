@@ -4,6 +4,7 @@ package de.kittlaus.java221.anotherShop;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SecondShopService {
@@ -21,8 +22,8 @@ public class SecondShopService {
         return orderRepo.list();
     }
 
-    public Order findOrderById(String id) {
-        return orderRepo.findById(id);
+    public Optional<Order> findOrderById(String id) {
+        return Optional.ofNullable(orderRepo.findById(id));
     }
 
     public Order saveNewOrder(Order ordertoAdd) {
@@ -33,8 +34,8 @@ public class SecondShopService {
         return productRepo.list();
     }
 
-    public Product getProductById(String id) {
-        return productRepo.findById(id);
+    public Optional<Product> getProductById(String id) {
+        return Optional.ofNullable(productRepo.findById(id));
     }
 
     public Product addNewProduct(Product productToAdd) {

@@ -4,6 +4,7 @@ package de.kittlaus.java221.anotherShop;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/products")
@@ -22,7 +23,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable String id){
-        return shopService.getProductById(id);
+        return shopService.getProductById(id).orElseThrow(() -> new NoSuchElementException("No Product with ID:"+id);
     }
 
     @PostMapping
