@@ -1,6 +1,5 @@
 package de.kittlaus.java221.anotherShop;
 
-import de.kittlaus.java221.shop.ShopService;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
