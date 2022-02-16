@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class OrderRepo {
@@ -16,8 +17,8 @@ public class OrderRepo {
         return allOrders.values().stream().toList();
     }
 
-    public OrderModel findById(String id) {
-        return allOrders.get(id);
+    public Optional<OrderModel> findById(String id) {
+        return Optional.ofNullable(allOrders.get(id));
     }
 
     public OrderModel save(OrderModel ordertoAdd) {

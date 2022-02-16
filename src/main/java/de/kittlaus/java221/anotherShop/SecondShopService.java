@@ -23,7 +23,7 @@ public class SecondShopService {
     }
 
     public Optional<OrderModel> findOrderById(String id) {
-        return Optional.ofNullable(orderRepo.findById(id));
+        return orderRepo.findById(id);
     }
 
     public OrderModel saveNewOrder(OrderModel ordertoAdd) {
@@ -35,7 +35,7 @@ public class SecondShopService {
     }
 
     public Optional<ProductModel> getProductById(String id) {
-        return Optional.ofNullable(productRepo.findById(id));
+        return productRepo.findById(id);
     }
 
     public ProductModel addNewProduct(ProductModel productToAdd) {

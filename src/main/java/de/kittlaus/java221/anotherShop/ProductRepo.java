@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ProductRepo {
@@ -15,8 +16,8 @@ public class ProductRepo {
         return allProducts.values().stream().toList();
     }
 
-    public ProductModel findById(String id) {
-        return allProducts.get(id);
+    public Optional<ProductModel> findById(String id) {
+        return Optional.ofNullable(allProducts.get(id));
     }
 
     public ProductModel save(ProductModel productToAdd) {
