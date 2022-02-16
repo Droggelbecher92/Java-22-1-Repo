@@ -24,7 +24,7 @@ public class OrderController {
 
     @GetMapping("/{id}")
     public Order getOrderById(@PathVariable String id){
-        return shopService.findOrderById(id).orElseThrow(() -> new NoSuchElementException("No Order with ID:"+id));
+        return shopService.findOrderById(id).orElseThrow(() -> new IllegalArgumentException("No Order with ID:"+id));
     }
 
     @PostMapping

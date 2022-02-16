@@ -23,7 +23,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable String id){
-        return shopService.getProductById(id).orElseThrow(() -> new NoSuchElementException("No Product with ID:"+id));
+        return shopService.getProductById(id).orElseThrow(() -> new IllegalArgumentException("No Product with ID:"+id));
     }
 
     @PostMapping
