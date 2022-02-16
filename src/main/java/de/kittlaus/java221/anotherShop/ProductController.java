@@ -4,7 +4,6 @@ package de.kittlaus.java221.anotherShop;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/products")
@@ -17,17 +16,17 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAllProducts(){
+    public List<ProductModel> getAllProducts(){
         return shopService.getAllProducts();
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable String id){
+    public ProductModel getProductById(@PathVariable String id){
         return shopService.getProductById(id).orElseThrow(() -> new IllegalArgumentException("No Product with ID:"+id));
     }
 
     @PostMapping
-    public Product postNewProduct(@RequestBody Product productToAdd){
+    public ProductModel postNewProduct(@RequestBody ProductModel productToAdd){
         return shopService.addNewProduct(productToAdd);
     }
 

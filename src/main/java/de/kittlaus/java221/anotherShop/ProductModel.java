@@ -3,17 +3,17 @@ package de.kittlaus.java221.anotherShop;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Product {
+public class ProductModel {
 
     private final String name;
     private final String id;
 
-    public Product(String name) {
+    public ProductModel(String name) {
         id = UUID.randomUUID().toString();
         this.name = name;
     }
 
-    public Product(String name, String id) {
+    public ProductModel(String name, String id) {
         this.name = name;
         this.id = id;
     }
@@ -30,7 +30,7 @@ public class Product {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
+        ProductModel product = (ProductModel) o;
         return Objects.equals(name, product.name) && Objects.equals(id, product.id);
     }
 

@@ -1,9 +1,9 @@
 package de.kittlaus.java221.anotherShop;
 
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -12,13 +12,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Arrays;
-import java.util.NoSuchElementException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ProductControllerTest {
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class ProductModelControllerTest {
 
     @LocalServerPort
     private int port;
@@ -27,15 +28,15 @@ class ProductControllerTest {
     private TestRestTemplate testRestTemplate;
 
     //Testobjekte
-    final Product testProduct = new Product("Kartoffel","test");
-    final Product testProduct2 = new Product("Mango","test2");
+    final private ProductModel testProduct = new ProductModel("Kartoffel","test");
+    final private ProductModel testProduct2 = new ProductModel("Mango","test2");
 
     @Order(1)
     @Test
     void shouldAddNewProduct(){
         //GIVEN
         //WHEN
-        ResponseEntity<Product> actual = testRestTemplate.postForEntity("/products", testProduct, Product.class);
+        ResponseEntity<ProductModel> actual = testRestTemplate.postForEntity("/products", testProduct, ProductModel.class);
         //THEN
         assertEquals(HttpStatus.OK,actual.getStatusCode());
         assertEquals(testProduct,actual.getBody());
@@ -46,9 +47,9 @@ class ProductControllerTest {
     @Test
     void shouldReturnAllProducts(){
         //GIVEN
-        testRestTemplate.postForEntity("/products",testProduct2, Product.class);
+        testRestTemplate.postForEntity("/products",testProduct2, ProductModel.class);
         //WHEN
-        ResponseEntity<Product[]> actual = testRestTemplate.getForEntity("/products", Product[].class);
+        ResponseEntity<ProductModel[]> actual = testRestTemplate.getForEntity("/products", ProductModel[].class);
         //THEN
         assertEquals(HttpStatus.OK,actual.getStatusCode());
         assertTrue(actual.getBody().length==2);
@@ -61,7 +62,7 @@ class ProductControllerTest {
     void shouldReturnTestProduct(){
         //GIVEN
         //WHEN
-        ResponseEntity<Product> actual = testRestTemplate.getForEntity("/products/test", Product.class);
+        ResponseEntity<ProductModel> actual = testRestTemplate.getForEntity("/products/test", ProductModel.class);
         //THEN
         assertEquals(HttpStatus.OK,actual.getStatusCode());
         assertEquals(testProduct,actual.getBody());
@@ -73,8 +74,8 @@ class ProductControllerTest {
         //GIVEN
         //WHEN
         //THEN
-        assertThrows(IllegalArgumentException.class, () -> testRestTemplate.getForEntity("products/unknown", Product.class));
-
+        assertThrows(IllegalArgumentException.class, () -> testRestTemplate
+                .getForEntity("products/unknown", ProductModel.class));
     }
 
 }

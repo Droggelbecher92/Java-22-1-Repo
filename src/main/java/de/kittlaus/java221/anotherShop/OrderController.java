@@ -4,7 +4,6 @@ package de.kittlaus.java221.anotherShop;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/order")
@@ -18,17 +17,17 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<Order> getAllOrders(){
+    public List<OrderModel> getAllOrders(){
         return shopService.getAllOrders();
     }
 
     @GetMapping("/{id}")
-    public Order getOrderById(@PathVariable String id){
+    public OrderModel getOrderById(@PathVariable String id){
         return shopService.findOrderById(id).orElseThrow(() -> new IllegalArgumentException("No Order with ID:"+id));
     }
 
     @PostMapping
-    public Order postNewOrder(@RequestBody Order ordertoAdd){
+    public OrderModel postNewOrder(@RequestBody OrderModel ordertoAdd){
         return shopService.saveNewOrder(ordertoAdd);
     }
 }

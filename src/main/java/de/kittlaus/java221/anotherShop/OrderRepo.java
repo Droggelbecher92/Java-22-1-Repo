@@ -9,18 +9,18 @@ import java.util.List;
 @Repository
 public class OrderRepo {
 
-    private HashMap<String, Order> allOrders = new HashMap<>();
+    private HashMap<String, OrderModel> allOrders = new HashMap<>();
 
 
-    public List<Order> list() {
+    public List<OrderModel> list() {
         return allOrders.values().stream().toList();
     }
 
-    public Order findById(String id) {
+    public OrderModel findById(String id) {
         return allOrders.get(id);
     }
 
-    public Order save(Order ordertoAdd) {
+    public OrderModel save(OrderModel ordertoAdd) {
         allOrders.put(ordertoAdd.getId(),ordertoAdd);
         return ordertoAdd;
     }

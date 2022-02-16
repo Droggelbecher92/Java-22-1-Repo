@@ -18,27 +18,27 @@ public class SecondShopService {
         this.productRepo = productRepo;
     }
 
-    public List<Order> getAllOrders() {
+    public List<OrderModel> getAllOrders() {
         return orderRepo.list();
     }
 
-    public Optional<Order> findOrderById(String id) {
+    public Optional<OrderModel> findOrderById(String id) {
         return Optional.ofNullable(orderRepo.findById(id));
     }
 
-    public Order saveNewOrder(Order ordertoAdd) {
+    public OrderModel saveNewOrder(OrderModel ordertoAdd) {
         return orderRepo.save(ordertoAdd);
     }
 
-    public List<Product> getAllProducts() {
+    public List<ProductModel> getAllProducts() {
         return productRepo.list();
     }
 
-    public Optional<Product> getProductById(String id) {
+    public Optional<ProductModel> getProductById(String id) {
         return Optional.ofNullable(productRepo.findById(id));
     }
 
-    public Product addNewProduct(Product productToAdd) {
+    public ProductModel addNewProduct(ProductModel productToAdd) {
         return productRepo.save(productToAdd);
     }
 }

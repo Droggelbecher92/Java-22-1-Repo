@@ -9,17 +9,17 @@ import java.util.List;
 @Repository
 public class ProductRepo {
 
-    private final HashMap<String, Product> allProducts = new HashMap<>();
+    private final HashMap<String, ProductModel> allProducts = new HashMap<>();
 
-    public List<Product> list() {
+    public List<ProductModel> list() {
         return allProducts.values().stream().toList();
     }
 
-    public Product findById(String id) {
+    public ProductModel findById(String id) {
         return allProducts.get(id);
     }
 
-    public Product save(Product productToAdd) {
+    public ProductModel save(ProductModel productToAdd) {
         allProducts.put(productToAdd.getId(),productToAdd);
         return productToAdd;
     }
