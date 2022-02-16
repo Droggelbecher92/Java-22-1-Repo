@@ -30,4 +30,9 @@ public class ShopController {
         shopService.makeAProduct();
     }
 
+    @DeleteMapping
+    public void deleteOneProduct(@RequestBody Product productToDelete){
+        shopService.deleteThisProduct(productToDelete);
+    }
+
 }

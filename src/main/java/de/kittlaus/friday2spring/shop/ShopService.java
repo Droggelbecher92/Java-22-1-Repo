@@ -32,4 +32,9 @@ public class ShopService {
         Product randomProduct = new Product("irgendwas");
         shopRepository.saveThisProduct(randomProduct);
     }
+
+    public void deleteThisProduct(Product productToDelete) {
+        //Hier z.B fehler werfen wenn Produkt nicht da
+        shopRepository.deleteProduct(productToDelete);
+    }
 }

@@ -19,4 +19,8 @@ public class ShopRepository {
     public void saveThisProduct(Product productToAdd) {
         allMyProducts.add(productToAdd);
     }
+
+    public void deleteProduct(Product productToDelete) {
+        //Durch die Liste gehen und Produkt löschen
+    }
 }
