@@ -16,4 +16,5 @@ public class RestTemplateService {
         ResponseEntity<GithubUserRepos[]> response =  template.getForEntity(requestUrl,GithubUserRepos[].class);
         return Arrays.stream(response.getBody()).toList();
     }
+
 }
